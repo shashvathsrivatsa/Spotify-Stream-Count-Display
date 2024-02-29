@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Spotify Stream Display",
+    "version": "1.0",
+    "description": "Shows the stream count for every song on Spotify",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "scripting",
+        "webRequest"
+    ],
+    "icons": {
+        "160": "assets/icon.png"
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ],
+
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://open.spotify.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "action": {
+        "default_icon": {
+            "512": "assets/icon.png"
+        }
+    }
+
+}
